@@ -27,33 +27,53 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="chips.css" />
     <style>
+
+    </style>
+    <style>
         body {
             background-color: #333;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         label.chips {
-            font-family: sans-serif;
-            border-color: lightgray;
-            color: white;
+            border-color: gray;
+            color: lightgray;
         }
 
         label.action a:active,
-        label.chips input:checked~span,
-        label.chips input:indeterminate~span {
-            background-color: rgba(100%, 100%, 100%, 12%);
+        label.chips input:checked~span:first-of-type,
+        label.chips input:indeterminate~span:last-of-type {
+            background-color: red;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
 
 <body>
-    <label class="chips"><input type="checkbox"><span>text</span></label>
-    <label class="chips filter"><input type="checkbox"><span>Text</span></label>
-    <label class="chips filter selected"><input type="checkbox"><span>Text</span></label>
-    <label class="chips action"><a>Text</a></label>
-    <label class="chips double"
-        onclick="if(event.target==this.lastElementChild){this.control.indeterminate =  !this.control.indeterminate;event.preventDefault();}">
-        <input type="checkbox"><span>Dreisatz</span><span>Prozentrechnen</span>
-    </label>
+    <div>
+        <label class="chips"><input type="checkbox"><span>chips</span></label>
+    </div>
+    <div>
+        <label class="chips filter"><input type="checkbox"><span>filter</span></label>
+    </div>
+    <div>
+        <label class="chips check"><input type="checkbox"><span>check</span></label>
+    </div>
+    <div>
+        <label class="chips action"><a>action</a></label>
+    </div>
+    <div>
+        <label class="chips double"
+            onclick="if(event.target==this.lastElementChild){this.control.indeterminate =  !this.control.indeterminate;event.preventDefault();}">
+            <input type="checkbox"><span>Dreisatz</span><span>Prozent</span>
+        </label>
+    </div>
 </body>
 
 </html>

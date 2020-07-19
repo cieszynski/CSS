@@ -1,25 +1,5 @@
-/**
- * Copyright (C) 2020 Stephan Cieszynski
- * 
- * This file is part of CSS.
- * 
- * CSS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * CSS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with CSS.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-
 @font-face {
-    font-family: 'material-icons';
+    font-family: 'chips-icons';
     src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAekABAAAAAAC2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABwAAAAcjF6/8EdERUYAAAGIAAAAHAAAAB4AJwAdT1MvMgAAAaQAAABAAAAAYBuYDcljbWFwAAAB5AAAAGsAAAF+EYlskWN2dCAAAAJQAAAABgAAAAYFEQBEZnBnbQAAAlgAAAGxAAACZVO0L6dnYXNwAAAEDAAAAAgAAAAIAAAAEGdseWYAAAQUAAABKQAAAex77/tfaGVhZAAABUAAAAAwAAAANhz3xd5oaGVhAAAFcAAAAB0AAAAkDgAH8GhtdHgAAAWQAAAAPwAAAFg6QQGcbG9jYQAABdAAAAAdAAAAMAOUBFZtYXhwAAAF8AAAACAAAAAgATEAUm5hbWUAAAYQAAAA6AAAAar7LUnscG9zdAAABvgAAAB5AAAA9kXindJwcmVwAAAHdAAAAC4AAAAusPIrFAAAAAEAAAAA1e1FuAAAAADbOLzuAAAAANs4vUl42mNgZGBg4AFiMSBmYmAEQjEgZgHzGAAEkABFeNpjYGbuZZzAwMrAwmrEOoOBgVEOQjNfY0hjEmJABYwCaAIMDgyML5nYG/43MDCwrWJQA6lBklVgYAQAxGgIg3jaY2BgYGaAYBkGRgYQqADyGMF8FoYYIC3EIAAUYQKKKTAsUOBS0FeIV/3zkun/f7BqkBgDVIwBJPb/yf/UB2z3H93ffEtcXASoS4gBHTCC7GNkA2JmqAATkGDCUAV0wFABrGTpAgAXbRWJAAAAAEQFEQAAeNpdUbtOW0EQ3Q0PA4HE2CA52hSzmZDGe6EFCcTVjWJkO4XlCGk3cpGLcQEfQIFEDdqvGaChpEibBiEXSHxCPiESM2uIojQ7O7NzzpkzS8qRqnfpa89T5ySQwt0GzTb9Tki1swD3pOvrjYy0gwdabGb0ynX7/gsGm9GUO2oA5T1vKQ8ZTTuBWrSn/tH8Cob7/B/zOxi0NNP01DoJ6SEE5ptxS4PvGc26yw/6gtXhYjAwpJim4i4/plL+tzTnasuwtZHRvIMzEfnJNEBTa20Emv7UIdXzcRRLkMumsTaYmLL+JBPBhcl0VVO1zPjawV2ys+hggyrNgQfYw1Z5DB4ODyYU0rckyiwNEfZiq8QIEZMcCjnl3Mn+pED5SBLGvElKO+OGtQbGkdfAoDZPs/88m01tbx3C+FkcwXe/GUs6+MiG2hgRYjtiKYAJREJGVfmGGs+9LAbkUvvPQJSA5fGPf50ItO7YRDyXtXUOMVYIen7b3PLLirtWuc6LQndvqmqo0inN+17OvscDnh4Lw0FjwZvP+/5Kgfo8LK40aA4EQ3o3ev+iteqIq7wXPrIn07+xWgAAAAABAAH//wAPeNqlj81Kw0AUhc+dZDINFMy0xSxUSKC1i4qxtVgCXeYRrOsuuvARgqsufQQXLros2kUmz9FsXYlv4AuEMjgJgvVn5+UynHPmwr0fGBKALfgMFgTOFSGa5sKm95Fy+Os0t5iRUFYV8yrOhcN205yq/FKGshfKMGGB7tKDvuWz8jmxCwCEvRr+3zNswMS184QDHGGErBlldmGasuMow0vWKEyrExqoBmRLeZ04hrKbRko/ji+GbW9yFQb+ofSEEwb9057v0sSlvkuCNmVJc5qXpvRKr4xbpzSmcaq39aO3xlo3+xNleWay+uNrruKmLjEBfgdujFngmySlhXWf7sDeUv1Yq288LfT2edo1j1eoDg0+EbzWXwjc/X05WzNo/Lw1oCUtPwAfAIdjAAAAeNpjYGRgYADihZPj5sXz23xlkOdgAIHbFnveQei9niCaPYRtFZDiYGAC8QAuMAnkeNpjYGRgYFv1/xYDAwcDCLCHMDAyoAJRAFPvAwQAAAB42mN6w+DCAARMqxjAgAWKmUMZGNhWIWgmCwYGRiDNKAPBDFeBNFCOIQ5Cg+SYXzAwcDAwrGFUYVgDAI26ChAAeNpjYGDQYTABQhsGFwYfPDCEYQXDHoZvAJAiB+sAAAAAAQAAABcAHAACAAAAAAACAAEAAgAWAAABAAAyAAAAAHjaXY49akJREIU/8zQQEcsUImKdQqIohixANGATQTtB41MEf/BpCjeS2lW4Bn9W4AZcgVWqnHffENHiDt/MOWfuACl+8IjFn4iRBuMHcdrYE2WN4+R4MU7wTN34UZ6ucZIyE+OdPBvjPa9sjQ/yn42PSl8iPnlk+GXMF3OmenNmfOIz4ls7ewR32m2Xv/O21QUs5YrUIgXdcJupubqSOpJ75hI99T4DzfqsVRsu0bREgY7UPsP/ZLS35XJ5Ptz/4fTN1TLvVCi5WtWkJG/4BtoyVCZ0r/R87bte02IhZaxrAimTP+xrPSN42n3NSQ6CQBhE4X6g4DwP1+huRWRJjFxFTYxx48LbC/lrbW2+pDbPJe7/9s6RkNJzKX0ycgYMGTFmwpQZcxYsWbFmw5Zddnt+3/dgxPzzenjvg1n7ztgeMsgoD/IoC3mSpTzLStZmbMzCLJpL57WyXmuQ8QfPdi54AAAAuAH/hbABjQBLsAhQWLEBAY5ZsUYGK1ghsBBZS7AUUlghsIBZHbAGK1xYWbAUKwAA) format('woff');
     font-weight: normal;
     font-style: normal;
@@ -30,102 +10,81 @@ label.chips {
     overflow: hidden;
     user-select: none;
     display: inline-block;
+    font: 1em/2em sans-serif;
+    border: 1px solid transparent;
+    border-color: inherit;
+    border-radius: 1em;
     margin: .3em;
+}
+
+label.chips a, label.chips span {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0 .75em;
 }
 
 label.chips input {
     display: none;
 }
 
-label.chips>a, label.chips>input~span {
+label.check input~span::before, label.filter input~span::before {
     display: inline-block;
-    font-size: 1em;
-    line-height: 2em;
-    border: 1px solid transparent;
-    border-color: inherit;
-    border-radius: 1em;
-    text-decoration: inherit;
-    color: inherit;
-    padding: 0 .9em;
-    margin: 1px;
-}
-
-label.filter input~span::before {
-    display: inline-block;
+    font: 1em/1.2em 'chips-icons';
     transition: width .3s, opacity .3s .3s;
+    vertical-align: middle;
     content: "\A";
     opacity: 0;
     width: 0;
 }
 
 label.filter input:checked~span::before {
-    font: 1em/1.95em 'material-icons';
     content: "\e900";
-    opacity: 1;
     width: 1.25em;
-    vertical-align: bottom;
+    opacity: 1;
 }
 
-label.selected input:checked~span::before {
+label.check input:checked~span::before {
     content: "\e901";
+    width: 1.25em;
+    opacity: 1;
 }
 
 label.action a::before {
     vertical-align: bottom;
-    font: 1em/1.95em 'material-icons';
+    font: 1em/1.95em 'chips-icons';
     display: inline-block;
     content: "\e902";
     width: 1.25em;
 }
 
-label.double >input~span:first-of-type {
-    will-change: width, padding, opacity;
-    transition: width .3s, padding .3s, color .3s;
-    border-right: none;
-    border-radius: 1em 0 0 1em;
-    margin-right: 0;
+label.double>input~span {
+    border: 0px solid black;
+    border-color: inherit;
+    transition: font .3s;
+    will-change: contents;
+    margin-right: -1px;
 }
 
-label.double >input~span:last-of-type {
-    will-change: width, padding, opacity;
-    transition: width .3s, padding .3s, color .3s;
-    border-left: none;
-    border-radius: 0 1em 1em 0;
-    margin-left: 0;
+label.double>input~span:first-of-type {
+    border-right-width: 1px;
 }
 
-label.double >input:checked~span:last-of-type {
-    pointer-events: none;
-    color: transparent;
-    width: 1em;
-    padding: 0;
+label.double>input~span:last-of-type {
+    border-left-width: 1px;
 }
 
-label.double >input:checked~span:first-of-type {
-    padding-right: 0;
+label.double>input:indeterminate~span:first-of-type, label.double>input:checked~span:last-of-type {
+    font: 0em/0em sans-serif;
+    margin: -2px;
 }
 
-label.double >input:indeterminate~span:last-of-type {
-    padding-left: 0;
-}
-
-label.double >input:indeterminate~span:first-of-type {
-    pointer-events: none;
-    color: transparent;
-    width: 1em;
-    padding: 0;
-}
-
-/* style */
-
-/* label.chips {
-    font-family: sans-serif;
-    border-color: lightgray;
-    color: white;
-}
-
-label.action a:active,
-label.chips input:checked~span,
-label.chips input:indeterminate~span {
-    background-color: rgba(100%, 100%, 100%, 12%);
-} */
+/* STYLE * /
+    label.chips {
+        border-color: gray;
+        color: lightgray;
+    }
+    label.action a:active,
+    label.chips input:checked~span:first-of-type,
+    label.chips input:indeterminate~span:last-of-type {
+        background-color: red;
+    }*/
