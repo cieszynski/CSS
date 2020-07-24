@@ -30,7 +30,7 @@ math-math {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     font-family: symbolaregular;
     background-color: inherit;
 }
@@ -40,23 +40,25 @@ math-math * {
     background-color: inherit;
 }
 
-math-mo, math-mi, math-mrow, math-ms, math-mn {
+math-mo, math-mi, math-mrow, math-mn {
     display: inline-flex;
+    flex-wrap: nowrap;
     align-self: center;
+    text-align: center;
     line-height: 1.3em;
-    margin: 0 1ex;
+    margin: 0 .4ex;
 }
 math-ms {
-    margin: 0 1ex;
+    margin: 0 .4ex;
 }
 
-math-ms::before {
+/* math-ms::before {
     content: open-quote;
 }
 
 math-ms::after {
     content: close-quote;
-}
+} */
 
 math-ms[lquote]::before {
     content: attr(lquote);
@@ -75,11 +77,11 @@ math-mfrac {
 }
 
 math-mfrac>*:first-child {
-    box-shadow: 0 .05em 0 0 currentcolor;
+    box-shadow: 0 1px 0 0 currentcolor;
 }
 
 math-mfrac>*:last-child {
-    box-shadow: 0 .05em 0 0 currentcolor inset;
+    box-shadow: 0 1px 0 0 currentcolor inset;
 }
 
 /* sqrt */
