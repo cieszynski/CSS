@@ -15,12 +15,15 @@ label.chips {
     border-color: inherit;
     border-radius: 1em;
     margin: .3em;
+    height: fit-content;
 }
 
 label.chips a, label.chips span {
+    text-decoration: none;
     display: inline-block;
     white-space: nowrap;
     padding: 0 .75em;
+    color: currentColor;
 }
 
 label.chips input {
@@ -55,6 +58,7 @@ label.action a::before {
     display: inline-block;
     content: "\e902";
     width: 1.25em;
+    color: inherit;
 }
 
 label.double>input~span {

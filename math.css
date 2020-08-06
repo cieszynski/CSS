@@ -33,6 +33,13 @@ math-math {
     flex-wrap: wrap;
     font-family: symbolaregular;
     background-color: inherit;
+    margin: 8px;
+}
+
+math-math[display="block"] {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 math-math * {
@@ -50,6 +57,7 @@ math-mo, math-mi, math-mrow, math-mn {
 }
 math-ms {
     margin: 0 .4ex;
+    align-self: center;
 }
 
 /* math-ms::before {
