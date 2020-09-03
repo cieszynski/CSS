@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hamburger</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+        }
+
+        main.nine {
+            position: absolute;
+            width: 300vw;
+            height: 300vh;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            transition: top .3s, left .3s;
+        }
+
+        article.nine {
+            width: 100vw;
+            height: 100vh;
+            padding: 64px 16px 16px 16px;
+        }
+
+        header.nine {
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+        }
+
+        input#start:checked~header.nine {
+            display: none;
+        }
+
+        input#start:checked~main {
+            top: -100vh;
+            left: -100vw;
+        }
+
+        input#nw:checked~main {
+            top: 0;
+            left: 0;
+        }
+
+        input#nn:checked~main {
+            top: 0;
+            left: -100vw;
+        }
+
+        input#ne:checked~main {
+            top: 0;
+            left: -200vw;
+        }
+
+        input#ee:checked~main {
+            top: -100vh;
+            left: -200vw;
+        }
+
+        input#se:checked~main {
+            top: -200vh;
+            left: -200vw;
+        }
+
+        input#ss:checked~main {
+            top: -200vh;
+            left: -100vw;
+        }
+
+        input#sw:checked~main {
+            top: -200vh;
+            left: 0;
+        }
+
+        input#ww:checked~main {
+            top: -100vh;
+            left: 0vw;
+        }
+    </style>
+</head>
+
+<body>
+<!--     <form id="nine"></form>
+    <input id="start" type="radio" name="nine" value="0" form="nine" hidden checked />
+    <input id="nw" type="radio" name="nine" value="1" form="nine" hidden />
+    <input id="nn" type="radio" name="nine" value="2" form="nine" hidden />
+    <input id="ne" type="radio" name="nine" value="3" form="nine" hidden />
+    <input id="ee" type="radio" name="nine" value="4" form="nine" hidden />
+    <input id="se" type="radio" name="nine" value="5" form="nine" hidden />
+    <input id="ss" type="radio" name="nine" value="6" form="nine" hidden />
+    <input id="sw" type="radio" name="nine" value="7" form="nine" hidden />
+    <input id="ww" type="radio" name="nine" value="8" form="nine" hidden /> -->
+    <main class="nine">
+        <article class="nine">nw-<label for="nn">nn</label></article>
+        <article class="nine">nn-<label for="ne">ne</label></article>
+        <article class="nine">ne-<label for="ee">ee</label></article>
+        <article class="nine">ww-<label for="nw">nw</label></article>
+        <article id="start" class="nine">start<label for="nn">nn</label></article>
+        <article class="nine">ee-<label for="se">se</label></article>
+        <article class="nine">sw-<label for="ww">ww</label></article>
+        <article class="nine">ss-<label for="sw">sw</label></article>
+        <article class="nine">se-<label for="ss">ss</label></article>
+    </main>
+    <header class="nine">
+        <label for="start">start</label>
+    </header>
+</body>
+<script>
+    onclick = function (e) {
+        console.log(document.forms.nine.elements)
+       // document.forms.nine.elements.nine.value =  document.forms.nine.elements.nine.value+1
+    }
+</script>
+
+</html>

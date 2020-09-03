@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>stack</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="math.css" />
+    <style>
+        @font-face {
+            font-family: 'icomoonregular';
+            src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAj8AAsAAAAACLAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABCAAAAGAAAABgDxIFrGNtYXAAAAFoAAAAVAAAAFQXVtKJZ2FzcAAAAbwAAAAIAAAACAAAABBnbHlmAAABxAAABOgAAATo/TUXHWhlYWQAAAasAAAANgAAADYZ002jaGhlYQAABuQAAAAkAAAAJAfCA8hobXR4AAAHCAAAABwAAAAcEgAAcWxvY2EAAAckAAAAEAAAABACNgNCbWF4cAAABzQAAAAgAAAAIAAQAQBuYW1lAAAHVAAAAYYAAAGGmUoJ+3Bvc3QAAAjcAAAAIAAAACAAAwAAAAMDgAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA6QIDwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADgAAAAKAAgAAgACAAEAIOkC//3//wAAAAAAIOkA//3//wAB/+MXBAADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAwAA/8AEAAPAABcAQABvAAABFw4BIzAiIzEqASMiJicXNxYXFjI3NjcFIzUjEQ4BIyImJxEjFSMRNDc+ATc2OwEeATMxMjY3NTMyFx4BFxYVERM0Jy4BJyYrARUUBiMiJj0BIyIHDgEHBhURMxEXMhceARcWMzI3PgE3NjM3ETMRArELKV8xAgEBAQExYC8HCyotLFwsLSoBBm5JH4NeXoMfSW4REjsoKC4oDWRCQmQNKC4oKDsSEUkXF1A1NT1tQS0tQW09NTVQFxe3GQIVFk43OEZGODdOFhUCGbcBqEgHBwcIAUgGAwMDAwYN3P2uCBQUCAJS3AEALigoOxIRP1NTPgEREjsoKC7/AAEAPTU1UBcXJS1AQC0lFxdQNTU9/rf+nQkGBg4GBgYGDgYGCQFjAUkAAAAACAA+//QDxgOAAJkAoACwALQAvADTAOgA/QAAAS4BIyIGBzcGBw4BBwYPASYnJgYHBgcOARUUFhczFwYPAQ4BFRQWHwEGBw4BBwYXFDAxMBQ5ATAUMTAUOQEXFBYxHwEUFjMXMhY5ARcyFhcxOAEzOAE5AToBFzEeATMxFjY3Fx4BMzEwFjMyNjMxPgE3MTc2NxceARcxMzI2NzE2Nz4BJyYnNjc+ATc2PwE+ATU0JicVLgEnMQE+ARcOAQcDJjc+ATc2NxcGBw4BBwYnJSc3FxcnPgE3BxYGLwE2Nz4BNzY3PgEzMhYXIxYHDgEHBgcTOAExIgYVFBYzMjY3MT4BNTQmIzEXDgEjIiYnMS4BNTQ2MzIWFRQGBzEDrRAlEjNgLAQsKShIICAbAQ4eHkglJhsEBAcGAYsLCk4HCQQDFx0eHywKCgsBAQIBAQEBAQECAQIBAQECARAmE3N9FxYECQYBAQEBAQYKAiAaF04DCgYDBgkDHAwLBQMEAiMfHjQUFQ8BDxACAgILCP0nI1QcDBYKywkPDi8aGg+GBQ8OPTIxSgFTzCS3yjkVJREDBAO2tx8oJ143OD4oWjAKFQoCAwUFTVVVnaM4UFA4HDETEhVPODsLHxESHgwLDTEjIzENDAN7AwIREAIQFBU0Hh4jAQIEAwULDBwDCgUHDARNGBkgAw0IBQoDFw0aGlE4OUsBAQEBAgEBAwEBAQIBAgEBAQIDAWIzFwMEAQEBCAZOCguLBgYBBAMcJSVIHh4OGyAgSCgnKgUqXjMTJRMDCAsB/tsRAgQRJBT+DUsxMT0PDwWGDxoaLw8OCIfND7hGZgwWDAIfUkq3Sj0+YCIjFQ4QAQEfSEiuWllCAeFQODhPFRMSMRw4UMMMDQ0MCx8RIzIyIxEfCwAAAAADADP/8wPNA40AHAAgAEMAAAEiBw4BBwYVFBceARcWMzI3PgE3NjU0Jy4BJyYjEyM1MzcOAR0BIzU0Njc+ASc0JiciBgcOARUjNDY3PgEXHgEXFgYHAgBfVFR9JSQkJX1UVF9fVFR9JSQkJX1UVF8zZmYpExZmKycKCwEeFAoTCAcIZxgXFjofPFgCASEeA40kJX1UVF9fVFR9JSQkJX1UVF9fVFR9JST9M2aFDigVBgYuUh0IFg0UHQEIBwcTCyA5FhUXAQJXPCZDFwABAAAAAQAAWKlc+V8PPPUACwQAAAAAANtaBJMAAAAA21oEkwAA/8AEAAPAAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAHBAAAAAAAAAAAAAAAAgAAAAQAAAAEAAA+BAAAMwAAAAAACgAUAB4AugIOAnQAAQAAAAcA/gAIAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA4ArgABAAAAAAABAAcAAAABAAAAAAACAAcAYAABAAAAAAADAAcANgABAAAAAAAEAAcAdQABAAAAAAAFAAsAFQABAAAAAAAGAAcASwABAAAAAAAKABoAigADAAEECQABAA4ABwADAAEECQACAA4AZwADAAEECQADAA4APQADAAEECQAEAA4AfAADAAEECQAFABYAIAADAAEECQAGAA4AUgADAAEECQAKADQApGljb21vb24AaQBjAG8AbQBvAG8AblZlcnNpb24gMS4wAFYAZQByAHMAaQBvAG4AIAAxAC4AMGljb21vb24AaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AblJlZ3VsYXIAUgBlAGcAdQBsAGEAcmljb21vb24AaQBjAG8AbQBvAG8AbkZvbnQgZ2VuZXJhdGVkIGJ5IEljb01vb24uAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+    </style>
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            background-image: url(chalkboard.jpg);
+            background-position: center;
+            background-size: cover;
+            touch-action: none;
+            font-family: fantasy;
+            color: #ffe;
+        }
+
+        nav {
+            opacity: .99;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: scale(1);
+            transform-origin: center;
+            transition: transform .3s, opacity .3s;
+            filter: url(chalk.svg#chalk);
+        }
+
+        form {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0);
+            transform-origin: center;
+            transition: transform .3s, opacity .3s;
+        }
+
+        form:target {
+            opacity: .99;
+            transform: scale(1);
+        }
+
+        form:target~nav {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        article {
+            opacity: 1;
+            width: 100%;
+            max-width: 800px;
+            top: 0;
+            bottom: 52px;
+            overflow: hidden;
+            overflow-y: scroll;
+            padding: 16px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transform: scale(0);
+            transform-origin: center;
+            transition: transform .3s, opacity .3s;
+            position: absolute;
+            color: #ffe;
+            filter: url(chalk.svg#chalk);
+            font: 60px "icomoonregular";
+        }
+
+        @keyframes em {
+            from {
+                transform: rotate(10deg);
+            }
+
+            to {
+                transform: rotate(-10deg);
+            }
+        }
+
+        .q,
+        .a {
+            transform-origin: center;
+            font: inherit;
+            display: inline-block;
+            background-color: green;
+            border-radius: 12px;
+            padding: .3em;
+        }
+
+        .q {
+            background-color: red;
+            animation: 1s em infinite alternate both;
+        }
+
+        var {
+            font: 24px "icomoonregular";
+        }
+
+        hr {
+            border: 1px solid #ffe;
+            margin: 8px;
+        }
+
+        div.switch {
+            display: table;
+            border: 2px solid #ffe;
+            border-radius: 1em;
+            overflow: hidden;
+            position: relative;
+            color: #ffe;
+            z-index: 0;
+        }
+
+        div.switch label {
+            position: relative;
+            transition: font-size .3s;
+            padding: .5em 1em;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        input#heavy:checked~* div.switch label:last-of-type,
+        input#easy:checked~* div.switch label:first-of-type {
+            background-color: green;
+        }
+
+        input#heavy:checked~* div.switch label:first-of-type,
+        input#easy:checked~* div.switch label:last-of-type {
+            pointer-events: none;
+            font-size: 0;
+        }
+
+        footer.stepper {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+        }
+
+        label.stepper {
+            color: #ffe;
+            font-weight: bold;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            margin: 2px;
+            border-radius: 50%;
+            border: 4px solid #ffe;
+        }
+
+        input#art1~article.art1 {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+
+        input#step5:checked~* label.step5,
+        input#step4:checked~* label.step4,
+        input#step3:checked~* label.step3,
+        input#step2:checked~* label.step2,
+        input#step1:checked~* label.step1 {
+            background-color: #ffe;
+            color: #111;
+        }
+
+        h1 {
+            font-size: xx-large;
+        }
+
+        a#start {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 64px;
+            height: 64px;
+            background-color: green;
+            color: #ffe;
+            border-radius: 50%;
+            border: 2px solid #ffe;
+            text-decoration: none;
+            margin: 32px;
+        }
+
+        math-math * {
+            font: 18px "icomoonregular";
+        }
+
+        math-math.step5,
+        math-math.step4,
+        math-math.step3,
+        math-math.step2 {
+            overflow: hidden;
+            transition: opacity .3s;
+            opacity: 0;
+            /*             transition: transform .3s;
+            transform: scale(0); */
+        }
+
+        input#step1:checked~* hr {
+            opacity: 0;
+        }
+
+        input#step5:checked~* math-math.step5,
+        input#step4:checked~* math-math.step4,
+        input#step3:checked~* math-math.step3,
+        input#step2:checked~* math-math.step2,
+        input#step1:checked~* math-math.step1 {
+            /* transform: scale(1); */
+            opacity: .99;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="easy" type="checkbox" hidden />
+    <input id="heavy" type="checkbox" hidden />
+
+    <form id="content">
+        <input type="radio" name="stepper" value="0" id="step1" hidden checked />
+        <input type="radio" name="stepper" value="1" id="step2" hidden />
+        <input type="radio" name="stepper" value="2" id="step3" hidden />
+        <input type="radio" name="stepper" value="3" id="step4" hidden />
+        <input type="radio" name="stepper" value="4" id="step5" hidden />
+
+        <input type="radio" name="content" value="0" id="art1" hidden checked />
+        <input type="radio" name="content" value="1" id="art2" hidden />
+        <input type="radio" name="content" value="2" id="art3" hidden />
+        <input type="radio" name="content" value="3" id="art4" hidden />
+        <article class="art1">
+            <math-math>
+                <math-ms>10 &#xe900; = 30,- EUR</math-ms>
+            </math-math>
+            <math-math>
+                <math-ms>7 &#xe900; = <span class="q">? EUR</span></math-ms>
+            </math-math>
+            <hr />
+            <math-math class="step2 step3 step4 step5">
+                <math-ms>10 &#xe900; = 30,- EUR</math-ms>
+            </math-math>
+            <math-math class="step3 step4 step5">
+                <math-ms>1 &#xe900; =</math-ms>
+                <math-mfrac>
+                    <math-ms>30,- EUR</math-ms>
+                    <math-mn>10</math-mn>
+                </math-mfrac>
+            </math-math>
+            <math-math class="step4 step5">
+                <math-ms>7 &#xe900; =</math-ms>
+                <math-mfrac>
+                    <math-ms>30,- EUR</math-ms>
+                    <math-mn>10</math-mn>
+                </math-mfrac>
+                <math-mo>&times;</math-mo>
+                <math-mn>7</math-mn>
+            </math-math>
+            <math-math class="step5">
+                <math-ms>7 &#xe900; = <span class="a">21,- EUR</span></math-ms>
+            </math-math>
+        </article>
+        <article class="art2">2</article>
+        <article class="art3">3</article>
+        <article class="art4">4</article>
+        <footer class="stepper">
+            <label class="stepper step1" for="step1">1</label>
+            <label class="stepper step2" for="step2">2</label>
+            <label class="stepper step3" for="step3">3</label>
+            <label class="stepper step4" for="step4">4</label>
+            <label class="stepper step5" for="step5">5</label>
+        </footer>
+    </form>
+
+    <nav>
+        <h1>DREISATZ</h1>
+        <div class="switch">
+            <label for="easy">leicht</label>
+            <label for="heavy">schwer</label>
+        </div>
+        <a id="start" href="#content">START</a>
+    </nav>
+</body>
+
+<script>
+    "use strict";
+    const content = document.querySelector('form#content');
+
+    content.ontouchstart = function (e) {
+        this.x = e.touches[0].clientX;
+    }
+    content.ontouchend = function (e) {
+        if (Math.abs(e.changedTouches[0].clientX - this.x) < 20)
+            return;
+        const old = this.elements.stepper.value;
+        this.elements.stepper.value = (e.changedTouches[0].clientX > this.x)
+            ? parseInt(this.elements.stepper.value) - 1
+            : parseInt(this.elements.stepper.value) + 1;
+        if (old == this.elements.stepper.value) {
+            // this.reset();
+        }
+    }
+</script>
+
+</html>

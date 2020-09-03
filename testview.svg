@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1920 1920"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    preserveAspectRatio="xMidYMid meet">
+    <style>
+    svg:root {
+        overflow: hidden;
+        fill: red;
+    }
+    </style>
+    <style media="all and (orientation: portrait)">
+    svg:root {
+        overflow: hidden;
+        fill: blue;
+    }
+
+
+    </style>
+    <animate attributeName="viewBox" to="0 0 400 400" dur="5s" fill="freeze" />
+    <view id="a" viewBox="0 0 600 600"/>
+    <rect x="0" y="0" width="1920" height="1920" fill="red"/>
+    <a xlink:href="#a" href="#a">
+        <circle cx="100" cy="100" r="100" fill="black"/>
+    </a>
+        <a xlink:href="test.svg" href="test.svg">
+        <circle cx="500" cy="500" r="100" fill="black"/>
+    </a>
+    <script>
+    "use strict";
+    const circles = document.querySelectorAll('circle');
+    for(let i = 0; i &lt; circles.length; i++) {
+        circles[i].onclick = function(e) {
+           // console.log(e)
+        }
+    }
+    </script>
+</svg>

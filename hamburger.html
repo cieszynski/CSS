@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hamburger</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        * {
+            user-select: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+/*         *:focus {
+            outline: none;
+        } */
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        body:target {
+            background-color: aqua;
+        }
+
+        ul.hamburger {
+            padding: 0;
+            margin: auto;
+            width: 240px;
+            height: 240px;
+            outline: 1px solid red;
+            list-style: none;
+            position: relative;
+        }
+
+        li.hamburger {
+            top: 90px;
+            left: 90px;
+            width: 60px;
+            height: 60px;
+            border: 1px solid black;
+            border-radius: 50%;
+            position: absolute;
+            transition: top .3s, left .3s;
+            transition-delay: .05s;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        li.hamburger a {
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        svg.hamburger {
+            fill: none;
+            stroke: black;
+            animation-duration: 0.5s;
+            pointer-events: all;
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 90 300;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset .3s;
+            pointer-events: none;
+        }
+
+        li.hamburger.menu:focus svg.hamburger {
+            stroke-dashoffset: -255;
+            pointer-events: all;
+        }
+
+        li.hamburger.menu {
+            background-color: yellow;
+            z-index: 1;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.a {
+            top: 180px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.aa {
+            top: 160px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.b {
+            top: 153px;
+            left: 27px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.c {
+            left: 0px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.cc {
+            left: 20px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.d {
+            top: 27px;
+            left: 27px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.e {
+            top: 0px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.ee {
+            top: 20px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.f {
+            top: 27px;
+            left: 153px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.g {
+            left: 180px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.gg {
+            left: 160px;
+        }
+
+        li.hamburger.menu:focus~li.hamburger.h {
+            top: 153px;
+            left: 153px;
+        }
+    </style>
+
+</head>
+
+<body id="e">
+    <ul class="hamburger">
+        <li class="hamburger menu" tabindex="-1">
+            <svg class="hamburger" viewBox="0 0 240 240" width="60" tabindex="-1">
+                <path d="M 75,80 L 185,80 A 40 40 180 0 1 155,160 L 95,90" />
+                <path d="M 75,120 L 190,120" />
+                <path d="M 75,160 L 185,160 A 40 40 180 1 0 155,80 L 95,150" />
+            </svg>
+        </li>
+        <li class="hamburger aa">
+            <a href="#a">A</a>
+        </li>
+<!--         <li class="hamburger b">
+            B
+        </li> -->
+        <li class="hamburger cc">
+            <a href="#c">C</a>
+        </li>
+<!--         <li class="hamburger d">
+            D
+        </li> -->
+        <li class="hamburger ee">
+            <a href="#e">E</a>
+        </li>
+<!--         <li class="hamburger f">
+            F
+        </li> -->
+        <li class="hamburger gg">
+            <a href="#g">G</a>
+        </li>
+<!--         <li class="hamburger h">
+            H
+        </li> -->
+    </ul>
+</body>
+
+</html>
