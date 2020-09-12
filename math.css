@@ -47,7 +47,7 @@ math-math * {
     background-color: inherit;
 }
 
-math-mo, math-mi, math-mrow, math-mn, math-sup, math-sub {
+math-mo, math-mi, math-mrow, math-mn, math-msup, math-msub {
     display: inline-flex;
     flex-wrap: nowrap;
     align-self: center;
@@ -56,12 +56,12 @@ math-mo, math-mi, math-mrow, math-mn, math-sup, math-sub {
     margin: 0 .4ex;
 }
 
-math-sup>*:last-child {
+math-msup>*:last-child {
     align-self: flex-start;
     font-size: x-small;
 }
 
-math-sub>*:last-child {
+math-msub>*:last-child {
     align-self: flex-end;
     font-size: x-small;
 }
@@ -280,4 +280,17 @@ math-mfenced[close="]"][stretch="3"]::after {
     transform-origin: left -1em;
     transform: scaleY(1.225);
     content: "\023A4\A\023A5\A\023A6";
+}
+
+math-mtable {
+    display: inline-table;
+}
+
+math-mtr {
+    display: table-row;
+}
+
+math-mtd {
+    display: table-cell;
+    vertical-align: middle;
 }
