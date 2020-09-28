@@ -44,7 +44,8 @@ math-math[display="block"] {
 
 math-math * {
     outline: 0px solid red;
-    background-color: inherit;
+    /* background-color: inherit; 
+    align-self: baseline;*/
 }
 
 math-mo, math-mi, math-mrow, math-mn, math-msup, math-msub {
@@ -56,14 +57,24 @@ math-mo, math-mi, math-mrow, math-mn, math-msup, math-msub {
     margin: 0 .4ex;
 }
 
+math-msup>*, math-msub>* {
+    margin: 0;
+}
+
 math-msup>*:last-child {
+    line-height: 75%;
     align-self: flex-start;
     font-size: x-small;
 }
 
 math-msub>*:last-child {
-    align-self: flex-end;
+    line-height: 75%;
     font-size: x-small;
+    align-self: flex-end;
+}
+
+math-msub>*:first-child {
+    background-color: transparent;
 }
 
 math-ms {
@@ -101,21 +112,22 @@ math-mfrac>*:first-child {
 }
 
 math-mfrac>*:last-child {
+    padding-top: .2em;
     box-shadow: 0 1px 0 0 currentcolor inset;
 }
 
 /* sqrt */
 
-math-msqrt {
+math-mroot, math-msqrt {
     display: inline-flex;
     position: relative;
-    padding: 0 .2em 0 1em;
+    padding: .2em .2em 0 1em;
     overflow: hidden;
     font-size: 1em;
     line-height: 1em;
 }
 
-math-msqrt::before {
+math-mroot::before, math-msqrt::before {
     background-color: inherit;
     /*  HACK  */
     font-family: symbolaregular;
@@ -134,15 +146,15 @@ math-msqrt::before {
     /*  HACK  */
 }
 
-math-msqrt[stretch="2"]::before {
+math-mroot[stretch="2"]::before, math-msqrt[stretch="2"]::before {
     transform: scaleY(2.7);
 }
 
-math-msqrt[stretch="3"]::before {
+math-mroot[stretch="3"]::before, math-msqrt[stretch="3"]::before {
     transform: scaleY(4.05);
 }
 
-math-msqrt::after {
+math-mroot::after, math-msqrt::after {
     z-index: 0;
     /*  HACK  */
     font-family: symbolaregular;
@@ -155,6 +167,21 @@ math-msqrt::after {
     height: 1px;
     content: "";
     box-shadow: 0 1px 0 0 currentColor inset;
+}
+
+math-mroot>*:last-child {
+    font-size: x-small;
+    position: absolute;
+    left: -.2ex;
+    top: -.1em;
+}
+
+math-mroot[stretch="2"]>*:last-child {
+    top: .9em;
+}
+
+math-mroot[stretch="3"]>*:last-child {
+    top: 1.8em;
 }
 
 /* fence */
